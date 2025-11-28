@@ -1,6 +1,8 @@
 # Morph-Net
 
-Code accompanying the workshop paper **“Morph-Net: End-to-End Prediction of Nuclear Morphological Features from Histology Images.”**
+Code related to the MICCAI-2022 workshop paper **“Morph-Net: End-to-End Prediction of Nuclear Morphological Features from Histology Images.”**
+
+[Gunesli, G. N., Jewsbury, R., Raza, S. E. A., & Rajpoot, N. M. (2022, September). Morph-Net: end-to-end prediction of nuclear morphological features from histology images. In International Workshop on Medical Optical Imaging and Virtual Microscopy Image Analysis (pp. 136-144). Cham: Springer Nature Switzerland.](https://link.springer.com/chapter/10.1007/978-3-031-16961-8_14)
 
 Morph-Net directly regresses morphological descriptors (area, major/minor axis length, perimeter, eccentricity, and instance counts) for four nucleus categories without relying on intermediate segmentation masks. This repository contains a lightweight training and evaluation pipeline for the PanNuke dataset together with cleaned utility scripts and notebooks.
 
@@ -72,7 +74,7 @@ The script reports RMSE/R²/Pearson/Spearman for each feature and optionally per
 
 ## Demo scripts
 
-- `python demo_train.py`: mirrors the hyper-parameters from the original training notebook (DenseNet-121 backbone, Automatic Weighted Loss, batch size 128, 1000 epochs). Pass `--epochs` to shorten experiments.
+- `python demo_train.py`: example hyper-parameters (DenseNet-121 backbone, Automatic Weighted Loss, batch size 128, 1000 epochs). Pass `--epochs` to shorten experiments.
 - `python demo_evaluate.py`: evaluates the demo checkpoint on a chosen subset (`--subset tr|val|test`) using the helper from `evaluate_pannuke.py`.
 
 These scripts are intentionally lightweight entry points that simply call into the main training/evaluation utilities with sensible defaults.
@@ -83,5 +85,5 @@ These scripts are intentionally lightweight entry points that simply call into t
 
 ## Notes
 
-- `.gitignore` shields large artifacts (`output/`, `tmp/`, datasets) to keep the repo reproducible.
+- `.gitignore` shields large artifacts (`output/`, `data/`) to keep the repo reproducible.
 - The code base avoids packaging; everything can be executed directly with CLI scripts (`train_pannuke.py`, `evaluate_pannuke.py`, `demo_*.py`).
